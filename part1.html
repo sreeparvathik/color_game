@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+
+<body onload="start_game()">
+<script>
+var rand_no;
+var int_rand_no;
+
+var finish=false;
+
+function start_game()
+{
+ rand_no=Math.random()*12;
+ int_rand_no=Math.floor(rand_no);
+ colors_in_game=["aqua","blue","black","cyan","gold","gray","green","magenta","orange","red","white","yellow"];
+ alert("The color is "+ colors_in_game[int_rand_no])
+ while(!finish)
+ {
+  a=prompt("I am thinking of one of these colors:\n\n"+
+          "aqua,blue,cyan,gold,gray,green,magenta,orange,red,white,yellow\n\n"+
+          "What color am I thinking of ?");
+  if(a==colors_in_game[int_rand_no])
+  {
+   finish=true;    
+  }
+
+ }
+ 
+ 
+}
+</script>
+</body>
+</html>
