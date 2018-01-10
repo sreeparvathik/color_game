@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+
+<body onload="start_game()">
+<script>
+var rand_no;
+var int_rand_no;
+var guess=0;
+var finish=false;
+
+function start_game()
+{
+ rand_no=Math.random()*12;
+ int_rand_no=Math.floor(rand_no);
+ colors_in_game=["aqua","blue","black","gold","gray","green","magenta","orange","purple","red","silver","yellow"];
+ alert("The color is "+ colors_in_game[int_rand_no])
+ while(!finish)
+ {
+  a=prompt("I am thinking of one of these colors:\n\n"+
+          "aqua,blue,black,gold,gray,green,magenta,orange,purple,red,silver,yellow\n\n"+
+          "What color am I thinking of ?");
+  guess+=1;
+  finish=check_guess();    
+ }
+
+}
+function check_guess()
+{
+ if(a!="aqua" && a!="blue" && a!="black" && a!="gold" && a!="gray" && a!="green" && a!="magenta" && a!="orange" && a!="purple" && a!="red" && a!="silver" && a!="yellow")
+      alert("Dont recognise color");
+ else if(a>colors_in_game[int_rand_no])
+      alert("Your input is alphabetically higher than mine!");
+ else if(a<colors_in_game[int_rand_no])
+      alert("Your input is alphabetically lower than mine!");
+ else
+     {
+      myBody=document.getElementsByTagName("body")[0];
+      myBody.style.background=colors_in_game[int_rand_no];   
+      alert("You're right!\nYou took "+ guess +" guesses");
+      return true;
+     }
+}
+</script>
+</body>
+</html>
